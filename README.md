@@ -1,1 +1,2 @@
-# moodle-mod_codingtask
+# Coding Task Plugin
+Moodle Mod plugin.
