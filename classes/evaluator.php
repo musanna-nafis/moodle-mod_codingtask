@@ -30,7 +30,6 @@ class evaluator {
         }
 
         curl_close($ch);
-
         $result = json_decode($response, true);
 
         // Debug log (for development, can be removed later)

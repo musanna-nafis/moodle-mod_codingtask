@@ -1,4 +1,8 @@
 <?php
+
+
+defined('MOODLE_INTERNAL') || die();
+require_once($CFG->dirroot.'/course/moodleform_mod.php');
 require_once(__DIR__.'/../../lib/formslib.php');
 
 class mod_codingtask_mod_form extends moodleform_mod {
