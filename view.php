@@ -8,7 +8,7 @@ $cm = get_coursemodule_from_id('codingtask', $id, 0, false, MUST_EXIST);
 $course = $DB->get_record('course', array('id' => $cm->course), '*', MUST_EXIST);
 $task = $DB->get_record('codingtask', array('id' => $cm->instance), '*', MUST_EXIST);
 
-require_login($course, true, $cm);
+require_login($course,false, $cm);
 $context = context_module::instance($cm->id);
 $PAGE->set_url(new moodle_url('/mod/codingtask/view.php'), array('id' => $id));
 $PAGE->set_title(format_string($task->name));
@@ -30,7 +30,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['code'])) {
     codingtask_complile_code($USER->id,$task->id,$task->input,$task->expectedoutput,$code);
 }
 
-// will show all our previous submitted response
+// Will show all our previous submitted response.
 codingtask_display_previous_submissions($USER->id,$task->id);
 
 echo $OUTPUT->footer();
