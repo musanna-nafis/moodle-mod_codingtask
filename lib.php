@@ -39,12 +39,22 @@ function codingtask_update_instance($data, $mform = null) {
     return $DB->update_record('codingtask', $record);
 }
 
+function codingtask_delete_instance($id) {
+    global $DB;
+    if (!$codingtask = $DB->get_record('codingtask', ['id' => $id])) {
+        return false;
+    }
+    $DB->delete_records('codingtask', ['id' => $id]);
+    return true;
+}
+
+
 //will compile code via api and findout the result
-function codingtask_complile_code($userid,$taskid,$taskinput,$taskoutput,$code)
+function codingtask_complile_code($userid,$taskid,$taskinput,$taskoutput,$code,$mylanguage)
 {
     global $DB;
     // pass source code and sample input to evaluator
-    $result = mod_codingtask\evaluator::run_code($code, $taskinput);
+    $result = mod_codingtask\evaluator::run_code($code, $taskinput,$mylanguage);
 
     //evaluator return the result response and we will show either the source code output match with our sample output
     $output = $result['run']['stdout'] ?? $result['run']['stderr'] ?? $result['compile']['stderr'] ?? 'No output';

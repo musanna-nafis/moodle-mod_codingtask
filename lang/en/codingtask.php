@@ -6,3 +6,5 @@ $string['codingtaskname'] = 'Task Name';
 $string['description'] = 'Task Description';
 $string['input'] = 'Sample Input';
 $string['expectedoutput'] = 'Expected Output';
+$string['language'] = 'Programming Language';
+

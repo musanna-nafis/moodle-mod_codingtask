@@ -21,6 +21,7 @@ class mod_codingtask_mod_form extends moodleform_mod {
 
         $mform->addElement('textarea', 'expectedoutput', get_string('expectedoutput', 'codingtask'));
         $mform->setType('expectedoutput', PARAM_RAW);
+        
 
         $this->standard_coursemodule_elements();
 
